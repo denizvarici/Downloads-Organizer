@@ -1,0 +1,20 @@
+{
+    "Arşivler":[
+        ".zip",
+        ".rar"
+    ],
+    "Resimler":[
+        ".jpeg",
+        ".jpg",
+        ".png"
+    ],
+    "Kurulum dosyaları":[
+        ".exe",
+        ".msi"
+
+    ],
+    "PDF dosyaları":[
+        ".pdf"
+    ]
+
+}

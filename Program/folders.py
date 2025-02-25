@@ -1,17 +1,22 @@
 import os
+import json
+import json_helper
 # computer downloads folder
 downloads_folder = os.path.expanduser("~/Downloads")
 
 #destination folder for categoriesed files
-dest_folder = os.path.expanduser("~/Downloads/SortedDownloads")
+dest_folder = os.path.expanduser("~/Downloads/İndirilenler Düzenleyicisi")
 
-#categories
-category_archives_folder = os.path.join(dest_folder,"Arşivler")
-category_pictures_folder = os.path.join(dest_folder,"Resimler")
-category_executables_folder = os.path.join(dest_folder,"Executables")
+
 
 #make folder for every category
 def make_category_folders():
-    os.makedirs(category_archives_folder,exist_ok=True)
-    os.makedirs(category_pictures_folder,exist_ok=True)
-    os.makedirs(category_executables_folder,exist_ok=True)
+    os.makedirs(dest_folder,exist_ok=True)
+    categories = json_helper.load_data_from_json()
+    if categories:
+        for category in categories:
+            os.makedirs(os.path.join(dest_folder,category),exist_ok=True)
+    else:
+        print("Herhangi bir kategori bulunamadı. downloadsettings.json dosyasını kontrol edin !")
+
+    
